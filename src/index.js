@@ -9,7 +9,7 @@ const server = http.createServer(app);
 const io = require("socket.io")(server, {
   //for vue dev server
   cors: {
-    origin: [process.env.LOCAL_STATIC_IP + ":8080"],
+    origin: [process.env.LOCAL_STATIC_IP + ":8080", "http://localhost:8080"],
     methods: ["GET", "POST"],
     credentials: true,
     allowEIO3: true,
@@ -45,6 +45,13 @@ io.on("connection", (socket) => {
   });
   socket.on("shut_down", () => {
     exec("sudo shutdown -h now");
+  });
+
+  socket.on("volume_up", () => {
+    exec("amixer -c 1 sset 'Headphone',0 100+");
+  });
+  socket.on("volume_down", () => {
+    exec("amixer -c 1 sset 'Headphone',0 100-");
   });
 });
 
