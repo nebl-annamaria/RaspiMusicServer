@@ -9,7 +9,12 @@ const server = http.createServer(app);
 const io = require("socket.io")(server, {
   //for vue dev server
   cors: {
-    origin: [process.env.LOCAL_STATIC_IP + ":8080", "http://localhost:8080"],
+    origin: [
+      process.env.LOCAL_STATIC_IP + ":8080",
+      process.env.LOCAL_STATIC_IP + ":3000",
+      "http://localhost:8080",
+      "http://localhost:3000",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
     allowEIO3: true,
