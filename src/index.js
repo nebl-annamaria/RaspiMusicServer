@@ -54,10 +54,10 @@ io.on("connection", (socket) => {
   });
 
   socket.on("volume_up", () => {
-    exec("amixer -c 1 sset 'Headphone',0 100+");
+    exec("amixer -c 0 sset 'Headphone',0 100+");
   });
   socket.on("volume_down", () => {
-    exec("amixer -c 1 sset 'Headphone',0 100-");
+    exec("amixer -c 0 sset 'Headphone',0 100-");
   });
 });
 
