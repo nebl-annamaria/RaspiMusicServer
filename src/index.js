@@ -7,7 +7,7 @@ const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const io = require("socket.io")(server, {
-  //for vue dev server
+  //vue dev server and local domain included
   cors: {
     origin: [
       process.env.LOCAL_STATIC_IP + ":8080",
