@@ -14,6 +14,7 @@ const io = require("socket.io")(server, {
       process.env.LOCAL_STATIC_IP + ":3000",
       "http://localhost:8080",
       "http://localhost:3000",
+      "http://music.raspi.home"
     ],
     methods: ["GET", "POST"],
     credentials: true,
